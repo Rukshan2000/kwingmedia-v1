@@ -30,7 +30,7 @@ export default function ServicesCTA() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-black min-h-96 flex items-center justify-center">
+    <section className="relative w-full overflow-hidden bg-black min-h-[500px] flex items-center justify-center">
       {/* Video Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -41,9 +41,8 @@ export default function ServicesCTA() {
         playsInline
       />
 
-      {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Content */}
       <motion.div

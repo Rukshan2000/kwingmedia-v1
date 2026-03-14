@@ -1,25 +1,35 @@
+'use client';
+
+import { VIDEOS } from '@/constants/videos';
+
 export default function ContactHero() {
   return (
-    <div className="w-full">
-      <div className="px-6 md:px-20 py-8">
-        <div
-          className="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[320px] relative group"
-          style={{
-            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqhOV6zM2G6iOPXkcggGT3KS3yA8m65IhILODdZOmDtILNTboAj_cv87atFbcWi6ZA7O824DkWsKjJ9iHNknyGHeGozwGQ7SOkea6IqxD6p9icJb5b1A83e3--FXbwt7ZV8PIra9fHlnUZqJs7RV55w9dL8pra5tBbNJA-rQ0OZCWbjMlvdIeERdRT3zlY-Yw1U90csiSaP6--FKfZs6vkWBohNO74WB7xVeJR5-tt_L5HGMYAm8-100YBeo-Gmjpuh9udzcq53h0")`,
-          }}
-        >
-          <div className="flex flex-col p-8 md:p-12">
-            <h1 className="text-white text-4xl md:text-5xl font-extrabold leading-tight">
-              Let's Create Something{' '}
-              <span className="text-primary">Extraordinary</span>
-            </h1>
-            <p className="text-slate-200 mt-4 max-w-xl text-lg">
-              Whether it's a digital strategy, IT infrastructure, or a flagship event, our
-              experts are ready to partner with you.
-            </p>
-          </div>
-        </div>
+    <section className="relative w-full overflow-hidden bg-black min-h-96 mb-12">
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={VIDEOS.BG2}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-16 py-20">
+        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4">
+          Get in Touch
+        </span>
+        <h1 className="text-5xl md:text-6xl font-black leading-tight tracking-tight max-w-3xl mb-6 text-white">
+          Let's Create Something <span className="text-primary">Extraordinary</span>
+        </h1>
+        <p className="text-lg font-normal leading-relaxed text-slate-100 max-w-2xl">
+          Whether it's a digital strategy, IT infrastructure, or a flagship event, our experts are ready to partner with you. Connect with us today.
+        </p>
       </div>
-    </div>
+    </section>
   );
 }

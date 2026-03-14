@@ -1,38 +1,73 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { VIDEOS } from '@/constants/videos';
+
 export default function BrandingHero() {
   return (
-    <section className="relative px-6 md:px-20 py-12 md:py-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative overflow-hidden rounded-xl bg-slate-900 min-h-125 flex flex-col items-center justify-center text-center p-8 md:p-16">
-          <div
-            className="absolute inset-0 opacity-40 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvK6-S3_RKH-HW2u-yX9MHG-KqaM8wTBYzXNCnFQWI54jmDL8zLdPsceWgZbssrrJx5WZz_SjF8l5ARl7cj75Jd-aUgWsb9pdA8z0g9BmIrGEvEh_7jlWjKewdeLXY-AlHouWSqC7tkM-MvygQ4NW_A86DzqvGrNjkBEFCYkrHDKYoya2EyWfUh2N03dovNqB1PR87CLdRKXDcjRuwuuqdaDUTjDt7mP0OR2H-mfqLZlz6bLOSruuVjLThlA9X-4MNrp1v4pYy2yg')`,
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
-          <div className="relative z-10 max-w-3xl">
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-primary text-white rounded-full">
-              Award Winning Agency
-            </span>
-            <h1 className="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6">
-              Elevate Your Identity.{' '}
-              <br />
-              <span className="text-primary">Ignite Your Growth.</span>
-            </h1>
-            <p className="text-slate-200 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-10">
-              Strategic branding and data-driven advertising to scale your digital presence in
-              an evolving market.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="h-14 px-8 bg-primary text-white rounded-lg font-bold text-lg hover:scale-105 transition-transform">
-                Get Started Today
-              </button>
-              <button className="h-14 px-8 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
-                View Our Work
-              </button>
-            </div>
-          </div>
-        </div>
+    <section className="relative w-full min-h-96 overflow-hidden bg-black flex items-center justify-center">
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={VIDEOS.BG1}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-20 py-24 text-center">
+        <motion.div
+          className="flex flex-col gap-8 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <motion.span
+            className="text-primary font-bold uppercase tracking-widest text-xs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Branding & Advertising
+          </motion.span>
+
+          <motion.h1
+            className="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+          >
+            Future-Proof Your Brand Through <span className="text-primary">Media & Technology</span>
+          </motion.h1>
+          
+          <motion.p
+            className="text-slate-100 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            We combine creative advertising, seamless event management, music & video productions, and cutting-edge IT solutions to power your brand's growth.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <button className="h-14 px-8 bg-primary text-white rounded-lg font-bold text-base hover:bg-primary/90 transition-bg transform hover:scale-105 shadow-lg shadow-primary/30">
+              Discuss Your Project
+            </button>
+            <button className="h-14 px-8 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-lg font-bold text-base hover:bg-white/20 transition-all">
+              View Our Work
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

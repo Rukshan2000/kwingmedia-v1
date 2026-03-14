@@ -20,7 +20,7 @@ export default function BrandingPortfolio() {
   ];
 
   return (
-    <section className="px-6 md:px-20 py-20 bg-[#111111]">
+    <section className="px-6 md:px-20 py-20 bg-[#000000]">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h3 className="text-3xl font-extrabold text-white">Recent Campaigns</h3>

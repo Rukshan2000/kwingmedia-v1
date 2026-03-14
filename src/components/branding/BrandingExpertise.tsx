@@ -13,45 +13,39 @@ export default function BrandingExpertise() {
   const services = [
     {
       icon: 'palette',
-      title: 'Brand Strategy',
-      description: 'Defining your core values, voice, and market positioning to stand out in the noise.',
+      title: 'Branding Materials',
+      description: 'Comprehensive brand identity solutions including logos, visual guidelines, and premium collateral that define your brand presence.',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCyRsJP2Q2LrhX5xoU5DKh7azdGsplntNQppRqDpRzJnZs4NUJXunLF7AQhieCQFGDdGOq7LO4VVRIKv_oTfGwpMFB1ZJ-feuYEHjyReS2y8ziYFLiCnBEZ4fuCFWR7T2UskinVGDiXK3ETyBjFSXA5tT4aKQVbd9dxJhsZQxv0GK5aOB3McRcGIOQQx8XaJiwbTZAYhli1zPG7vd21nkGAaY6D2IE6Gy2n4tjKAZJugCdcA_r8_u41jxpGEMR_YC8Bf9Nf9mIJjdg',
     },
     {
       icon: 'token',
-      title: 'Visual Identity',
-      description: 'Crafting memorable logos, typography, and visual guidelines that resonate with users.',
+      title: 'Digital Marketing',
+      description: 'Data-driven strategies across SEO, PPC, and social media management to boost your online presence and conversions.',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBD9iYIO_PgDGkPnD_uoGg2kMe8ROxAY4Nqtn8LWI5xTYRPS7q8qaRgOH2AK4GP6Fpr4WAoH8XU3ULRBmJoNCVJz0QWrleX2g9xMq7EeWjYWD_SgceI71cR5qpXHyyXhBEraeRGI8zzIsBdd_23WBk1sr8zF2TWf-UIT0f6SKbIzwFHjGdjUMwRDEiXY9vzxwD85jJ0uEiDq3MslBgQZt8PjjNiiJ4LsfooYS8XXAgtPmFu3vnkG83Jq4mQLPT9HH9vsjDlDyCTyG8',
     },
     {
       icon: 'ads_click',
-      title: 'Social Advertising',
-      description: 'High-impact multi-channel campaigns tailored to your target demographic.',
+      title: 'Creative Media Direction',
+      description: 'Strategic creative direction that captures your brand narrative and resonates with your target demographic.',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB618Ct6I5gbJ3V5LwKsh5aFjUsXnpBavqI71yMw73Or2MKBUdS-W16SafaIZZ_iYF8FmFC77QBZxYtQaTb3N5ex9bEgWXQwBcczUwRLYej-7hBZSQv7Y9jmPXgkX6WDY59Tmz0mOcUV1-GPqIU2shRzu_domynF0B0iabkMpr22hFvjr-Dz_kp1NG5P-FM11AUuC7fdltBb-vDeOCtuTxgg3E56hfyUckCj3m18JfFVmnU_tqGdxi-gCr8vwTL0aPvC58TJdRdGNE',
-    },
-    {
-      icon: 'search_insights',
-      title: 'SEM & SEO',
-      description: 'Optimizing your digital visibility where it matters most, driving organic and paid traffic.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC8UyHhMzYradfEKD5M4vfqATF5IicbbigHoGAFPaNVjS6ETGGv5vhZJNzIyV37qV5tExjdX-yI5Yn-aOc1g0RUPDL1nWddpegBvHx4ZCZ1gfPgbtuOr50QJ0ZDxMN64W9khy08p5rZer1XDChMnbQWBu_Kwd2Rjte06zva6UU0GBg91EW52GkB1J6KbLR7UNo47P7pj2GBbkTVNmVZM_640zRTSgmU9wMVCJccDWuBiHqbOfcL7_phRtPhDZIx0tS2YIJ8Qu0LgP8',
     },
   ];
 
   return (
-    <section className="px-6 md:px-20 py-16 bg-[#111111]">
+    <section className="px-6 md:px-20 py-16 bg-[#000000]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">
-              Core Capabilities
+              What We Offer
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-white">Our Expertise</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-white">Strategic Advertising & Branding</h3>
           </div>
-          <p className="text-slate-500 dark:text-slate-400 max-w-md">
-            We blend creative excellence with analytical precision to deliver results that matter.
+          <p className="text-slate-400 dark:text-slate-400 max-w-md">
+            We craft data-driven campaigns and visual identities that resonate with your target demographic.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <div
               key={i}

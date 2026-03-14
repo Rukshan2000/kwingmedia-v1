@@ -3,28 +3,28 @@ export default function BrandingProcess() {
     {
       number: '1',
       title: 'Discovery',
-      description: 'In-depth research into your business, competitors, and target audience.',
+      description: 'In-depth research into your business, competitors, and target audience to understand your unique positioning.',
       isPrimary: true,
     },
     {
       number: '2',
       title: 'Strategy',
-      description: 'Building a roadmap and defining the unique value proposition.',
+      description: 'Building a comprehensive roadmap and defining your core values, voice, and market positioning.',
     },
     {
       number: '3',
       title: 'Creative',
-      description: 'Execution of high-fidelity designs and compelling ad copy.',
+      description: 'Execution of high-fidelity designs, brand guidelines, and compelling campaign concepts.',
     },
     {
       number: '4',
-      title: 'Launch',
-      description: 'Deploying campaigns and ongoing optimization for ROI.',
+      title: 'Launch & Optimize',
+      description: 'Deploying campaigns across channels and continuously optimizing based on performance metrics.',
     },
   ];
 
   return (
-    <section className="px-6 md:px-20 py-20 bg-slate-900 text-white overflow-hidden">
+    <section className="px-6 md:px-20 py-20 bg-black text-white overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">

@@ -17,10 +17,8 @@ export default function ServicesHero() {
         playsInline
       />
 
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-20 py-24">

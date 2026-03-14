@@ -10,17 +10,20 @@ import {
 
 export default function SolutionsPage() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#0a0a0a]">
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white dark:bg-black">
 
-      <main className="flex-1" style={{
-        backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(194, 10, 10, 0.05) 1px, transparent 0)',
-        backgroundSize: '24px 24px',
-      }}>
+      <main className="flex-1 w-full">
         <SolutionsHero />
         <SolutionsStats />
-        <ExpertiseGrid />
-        <SolutionsConsultation />
+        
+        <div className="w-full">
+          <ExpertiseGrid />
+        </div>
       </main>
+
+      <div className="w-full py-12">
+        <SolutionsConsultation />
+      </div>
 
       <Footer />
     </div>

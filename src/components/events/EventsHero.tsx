@@ -1,27 +1,73 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { VIDEOS } from '@/constants/videos';
+
 export default function EventsHero() {
   return (
-    <section className="relative px-6 py-12 lg:px-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="group relative h-[500px] w-full overflow-hidden rounded-xl shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{
-              backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuU2FSH77P-7vK_FSJnaqOMMJV8QzcxbTAZPPsyFYeWmscwyrGJ-gdofiOI4GvX3fqnNuJ3vs2aZoWXTPb6PjQ4REDd9A93gUVAYCPAkNjE9AwHJGC4CtfVLCZaLqL89H4lOotxHOBSh9Hz2-Egf9LMA3TPQ6s0gDdj-NDlir-cVcbCiP32-LodO9DneTNjpXPqejs2NTDXVjcKDP1JDDxM7ISxbQE1F-JbOlqhYtTMtdG6EzMYRVv-1ljG0pUISVQxir8PoSQf0s")`
-            }}
-          ></div>
-          <div className="absolute bottom-0 left-0 z-20 p-8 lg:p-16">
-            <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur-md">
-              Featured Project
-            </span>
-            <h1 className="max-w-2xl text-4xl font-black leading-tight text-white lg:text-6xl">
-              Elevating Events to Art Forms.
-            </h1>
-            <p className="mt-4 max-w-lg text-lg text-slate-200">
-              From concept to execution, we bring your brand's vision to life through immersive experiences.
-            </p>
-          </div>
-        </div>
+    <section className="relative w-full min-h-96 overflow-hidden bg-black flex items-center justify-center">
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={VIDEOS.BG2}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-20 py-24">
+        <motion.div
+          className="flex flex-col gap-8 max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <motion.span
+            className="text-primary font-bold uppercase tracking-widest text-xs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Events & Audio-Visual
+          </motion.span>
+
+          <motion.h1
+            className="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+          >
+            Elevating Events to <span className="text-primary">Unforgettable Experiences</span>
+          </motion.h1>
+          
+          <motion.p
+            className="text-slate-100 text-lg md:text-xl leading-relaxed max-w-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            We specialize in end-to-end orchestration of corporate, commercial, and private events with broadcast-quality production. From concept to execution, every detail is managed to perfection.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 pt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <button className="h-14 px-8 bg-primary text-white rounded-lg font-bold text-base hover:bg-primary/90 transition-bg transform hover:scale-105 shadow-lg shadow-primary/30">
+              Start Planning Your Event
+            </button>
+            <button className="h-14 px-8 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-lg font-bold text-base hover:bg-white/20 transition-all">
+              View Our Portfolio
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -12,22 +12,28 @@ import {
 
 export default function ContactPage() {
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col dark:bg-background-dark overflow-x-hidden bg-slate-950">
+    <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white dark:bg-black">
 
-      <main className="flex-1">
-        <ContactHero />
+      <main className="flex-1 w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-20 py-8 md:py-12">
+          <ContactHero />
+        </div>
 
-        <div className="px-6 md:px-20 py-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <ContactForm />
+        <div className="max-w-7xl mx-auto px-6 md:px-20 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <ContactForm />
 
-          <div className="flex flex-col gap-10">
-            <ContactInfo />
-            <ContactLocation />
-            <ContactSocial />
+            <div className="flex flex-col gap-8">
+              <ContactInfo />
+              <ContactLocation />
+              <ContactSocial />
+            </div>
           </div>
         </div>
 
-        <ContactTestimonials />
+        <div className="w-full py-12">
+          <ContactTestimonials />
+        </div>
       </main>
 
       <Footer />

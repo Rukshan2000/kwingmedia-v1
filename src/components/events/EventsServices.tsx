@@ -1,48 +1,53 @@
-import { Users, Truck, Megaphone } from 'lucide-react';
-import { LucideIcon } from 'lucide-react';
-import React from 'react';
-
-const IconMap: Record<string, LucideIcon> = {
-  event_seat: Users,
-  local_shipping: Truck,
-  campaign: Megaphone,
-} as const;
+import { Check } from 'lucide-react';
 
 export default function EventsServices() {
   const services = [
     {
-      icon: 'event_seat',
-      title: 'Strategic Planning',
-      description: 'Masterminding every detail, from venue sourcing to comprehensive timeline management.',
+      title: 'Corporate Conferences & Seminars',
+      description: 'End-to-end orchestration of professional gatherings with seamless logistics and world-class production.',
+      features: ['Full event management', 'AV production', 'Venue coordination', 'Live streaming'],
     },
     {
-      icon: 'local_shipping',
-      title: 'Logistics & Tech',
-      description: 'Seamless coordination of suppliers, audiovisual systems, and onsite operations.',
+      title: 'Product Launches & Brand Activations',
+      description: 'Create buzz-worthy launch events that captivate audiences and elevate your brand story.',
+      features: ['Strategic planning', 'Creative direction', 'Multi-channel coverage', 'Real-time analytics'],
     },
     {
-      icon: 'campaign',
-      title: 'Event Branding',
-      description: 'Creative design, signage, and digital experiences that resonate with your audience.',
+      title: 'Audio & Video Production',
+      description: 'High-quality studio space and broadcast-quality production for every event moment.',
+      features: ['Cinema-quality footage', 'Live documentation', 'Professional editing', 'Streaming services'],
     },
   ];
 
   return (
-    <section className="dark:bg-slate-900/50 py-24 px-6 lg:px-12 bg-slate-900/30">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-black text-white lg:text-5xl">Our Specialties</h2>
-          <div className="mx-auto mt-4 h-1.5 w-24 bg-primary"></div>
+    <section className="py-16 px-6 md:px-20 bg-white dark:bg-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
+          <span className="text-primary font-bold uppercase tracking-widest text-xs">
+            Our Services
+          </span>
+          <h2 className="text-4xl font-black text-slate-900 dark:text-white mt-4 mb-4">Corporate, Commercial & Private Event Management</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl">
+            We manage every logistical detail — from venue procurement to on-site coordination — ensuring seamless execution that aligns perfectly with your corporate objectives.
+          </p>
         </div>
+        
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service, i) => (
             <div
               key={i}
-              className="rounded-xl border border-white/5 p-8 dark:bg-background-dark/50 bg-slate-900 text-white"
+              className="rounded-2xl border border-slate-200 dark:border-slate-700 p-8 bg-slate-50 dark:bg-slate-800/50 hover:shadow-lg dark:hover:shadow-lg dark:hover:shadow-primary/20 transition-all"
             >
-              {IconMap[service.icon] && React.createElement(IconMap[service.icon], {size: 32, className: 'text-primary'})}
-              <h3 className="mt-6 text-xl font-bold">{service.title}</h3>
-              <p className="mt-4 text-slate-400">{service.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{service.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">{service.description}</p>
+              <ul className="space-y-3">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                    <Check size={18} className="text-primary flex-shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

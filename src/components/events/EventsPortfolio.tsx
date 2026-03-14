@@ -30,24 +30,24 @@ export default function EventsPortfolio() {
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col items-end justify-between gap-4 md:flex-row">
-          <div className="max-w-xl">
-            <h2 className="text-4xl font-black tracking-tight text-white">Iconic Moments.</h2>
-            <p className="mt-4 text-lg text-slate-400">
-              Browse through our curated collection of successful brand activations and corporate gatherings.
+    <section className="py-16 px-6 md:px-20 bg-slate-50 dark:bg-slate-900/50">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white">Featured Events & Campaigns</h2>
+            <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+              Browse through our curated collection of successful corporate gatherings, product launches, and brand activations.
             </p>
           </div>
-          <a className="flex items-center gap-2 font-bold text-primary hover:underline transition-colors">
+          <a className="flex items-center gap-2 font-bold text-primary hover:underline transition-colors inline-block">
             View Full Gallery <ArrowRight size={20} />
           </a>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {portfolioItems.map((item, i) => (
             <div
               key={i}
-              className={`group relative overflow-hidden rounded-xl bg-slate-200 ${
+              className={`group relative overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-800 ${
                 item.isWide ? 'aspect-video sm:col-span-2 lg:col-span-3' : 'aspect-4/5'
               }`}
             >
@@ -62,7 +62,7 @@ export default function EventsPortfolio() {
               <div
                 className={`absolute inset-0 bg-linear-to-t to-transparent ${
                   item.isWide
-                    ? 'from-black/60 opacity-100'
+                    ? 'from-black/70 opacity-100'
                     : 'from-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
                 }`}
               ></div>
@@ -71,14 +71,14 @@ export default function EventsPortfolio() {
                   !item.isWide && 'opacity-0 transition-opacity duration-300 group-hover:opacity-100'
                 }`}
               >
-                <p className={`font-bold uppercase tracking-widest text-slate-400 ${item.isWide ? 'text-sm' : 'text-xs'}`}>
+                <p className={`font-bold uppercase tracking-widest text-slate-300 ${item.isWide ? 'text-sm' : 'text-xs'}`}>
                   {item.category}
                 </p>
                 <h4 className={`font-black ${item.isWide ? 'text-3xl' : 'text-xl'}`}>
                   {item.title}
                 </h4>
                 {item.description && (
-                  <p className={`mt-2 ${item.isWide ? 'max-w-md text-slate-300' : ''}`}>
+                  <p className={`mt-2 ${item.isWide ? 'max-w-md text-slate-200' : ''}`}>
                     {item.description}
                   </p>
                 )}

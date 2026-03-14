@@ -1,12 +1,15 @@
 export default function ContactSocial() {
   return (
-    <div className="flex flex-col gap-4">
-      <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">
-        Follow Our Journey
-      </h3>
+    <div className="flex flex-col gap-6">
+      <div>
+        <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-2">
+          Follow Our Journey
+        </h3>
+        <p className="text-slate-600 dark:text-slate-400 text-sm">Connect with us on social media</p>
+      </div>
       <div className="flex gap-4">
         <a
-          className="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-400"
+          className="w-12 h-12 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-600 dark:text-slate-400 hover:shadow-lg transform hover:scale-110"
           href="#"
           aria-label="Facebook"
         >
@@ -15,7 +18,7 @@ export default function ContactSocial() {
           </svg>
         </a>
         <a
-          className="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-400"
+          className="w-12 h-12 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-600 dark:text-slate-400 hover:shadow-lg transform hover:scale-110"
           href="#"
           aria-label="Twitter"
         >
@@ -24,7 +27,7 @@ export default function ContactSocial() {
           </svg>
         </a>
         <a
-          className="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-400"
+          className="w-12 h-12 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-600 dark:text-slate-400 hover:shadow-lg transform hover:scale-110"
           href="#"
           aria-label="LinkedIn"
         >

@@ -1,27 +1,83 @@
+'use client';
+
+import Link from 'next/link';
+import { VIDEOS } from '@/constants/videos';
+import { Sparkles, Zap, CheckCircle2, Shield } from 'lucide-react';
+
 export default function BrandingCTA() {
+  const benefits = [
+    {
+      icon: Sparkles,
+      title: 'Creative Excellence',
+      description: 'We craft unique, memorable concepts that capture market share and build brand equity.',
+    },
+    {
+      icon: Zap,
+      title: 'Data-Driven Strategy',
+      description: 'Every campaign is backed by analytics and insights that drive real business results.',
+    },
+    {
+      icon: CheckCircle2,
+      title: 'Multi-Channel Expertise',
+      description: 'From social advertising to SEO, we optimize across all digital touchpoints.',
+    },
+    {
+      icon: Shield,
+      title: 'Proven ROI',
+      description: 'Track every metric and see measurable growth where it counts most.',
+    },
+  ];
+
   return (
-    <section className="px-6 md:px-20 py-20">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-primary rounded-2xl p-8 md:p-16 text-center text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 size-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 size-48 bg-black/10 rounded-full -ml-24 -mb-24"></div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10 leading-tight">
-            Ready to take your brand
-            <br />
-            to the next level?
+    <section className="relative w-full overflow-hidden bg-black min-h-[550px] flex items-center justify-center">
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={VIDEOS.BG1}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-20 py-20 text-center">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-white leading-tight">
+            Why Choose KWINGS MEDIA?
           </h2>
-          <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto relative z-10">
-            Stop blending in. Start standing out with Kwings Media's tailored branding and
-            advertising solutions.
+          <p className="text-white/90 text-lg max-w-2xl mx-auto">
+            We combine creative brilliance with technical precision to deliver branding solutions that truly elevate your business.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <button className="h-16 px-10 bg-white text-primary font-black text-xl rounded-lg hover:bg-slate-100 transition-colors shadow-xl">
-              Let's Build Your Brand
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {benefits.map((benefit, i) => {
+            const Icon = benefit.icon;
+            return (
+              <div key={i} className="flex flex-col gap-4 p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all">
+                <Icon size={28} className="text-primary" />
+                <h3 className="text-lg font-bold text-white">{benefit.title}</h3>
+                <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/contact">
+            <button className="h-14 px-10 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-all shadow-lg transform hover:scale-105 duration-200">
+              Start Your Project
             </button>
-            <button className="h-16 px-10 bg-transparent border-2 border-white/30 text-white font-bold text-xl rounded-lg hover:bg-white/10 transition-colors">
-              Book a Strategy Call
+          </Link>
+          <Link href="/contact">
+            <button className="h-14 px-10 bg-primary/20 border-2 border-white/30 text-white font-bold rounded-lg hover:bg-white/20 hover:border-white/50 transition-all backdrop-blur-sm transform hover:scale-105 duration-200">
+              Get a Strategy Call
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

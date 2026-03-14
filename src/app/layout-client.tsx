@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Splash from '@/components/Splash';
 
 export default function SplashWrapper({
@@ -8,11 +8,21 @@ export default function SplashWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+    setShowSplash(true);
+  }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
   };
+
+  if (!isHydrated) {
+    return children;
+  }
 
   return (
     <>

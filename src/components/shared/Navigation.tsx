@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const logo = '/assets/logoWh.png';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +16,16 @@ export default function Navigation() {
 
   const menuItems = [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services' },
+    { label: 'About', href: '/about' },
+    {
+      label: 'Services',
+      submenu: [
+        { label: 'Events', href: '/events' },
+        { label: 'IT Solutions', href: '/solutions' },
+        { label: 'Brand Management', href: '/branding' },
+      ],
+    },
     { label: 'Contact', href: '/contact' },
-    { label: 'Events', href: '/events' },
-    { label: 'IT Solutions', href: '/solutions' },
-    { label: 'Brand Management', href: '/branding' },
   ];
 
   return (
@@ -28,7 +36,7 @@ export default function Navigation() {
             <img
               alt="Kwings Media Logo"
               className="h-full w-auto"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH2N323NkWJ8c9GcbXTz336eaXWrbFpQK8dpZExEXW6dh8gyh7oeOyuPANFv3Nct7B7hEl0k5Bx5Ch2BQVY1JSnNCLSYbMWAAp0qY-tXSqL1G9dezX9oqhxwobddB-qiV4dOxVdUI00qJoKna5DeQgTiRSJfB_tqj5pt9ZQf4tbT-27h9-uv7k92Pnutejra8gXA_QQWsp8pr70bs3-TceLydd1gPOX53vq_jzIrXnF5S1LcSTwdwk7Eycx_alo8PujM4oCBZGoFo"
+              src={logo}
             />
           </div>
           <h2 className="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">
@@ -41,49 +49,160 @@ export default function Navigation() {
       <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
         <nav className="flex items-center gap-8">
           {menuItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors"
-            >
-              {item.label}
-            </Link>
+            <div key={item.label} className="relative group">
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span className="text-slate-700 dark:text-slate-300 text-sm font-medium cursor-default">
+                  {item.label}
+                </span>
+              )}
+              {item.submenu && (
+                <motion.div
+                  className="absolute left-0 mt-0 w-48 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg origin-top opacity-0 invisible group-hover:opacity-100 group-hover:visible"
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  whileHover={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {item.submenu.map((subitem, index) => (
+                    <motion.div
+                      key={subitem.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileHover={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.2 }}
+                    >
+                      <Link
+                        href={subitem.href}
+                        className="block px-4 py-2 text-slate-700 dark:text-slate-300 text-sm hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {subitem.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </div>
           ))}
         </nav>
-        <button className="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+        <motion.button
+          className="flex min-w-30 cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Get a Quote
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Menu Button */}
-      <button
+      <motion.button
         onClick={toggleMenu}
         className="md:hidden text-slate-900 dark:text-white hover:text-primary transition-colors"
         aria-label="Toggle menu"
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <AnimatePresence mode="wait">
+          {isMenuOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X size={24} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Menu size={24} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
       {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white dark:bg-background-dark border-b border-primary/10 md:hidden">
-          <nav className="flex flex-col p-6 gap-4">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors py-2"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="absolute top-full left-0 right-0 bg-white dark:bg-background-dark border-b border-primary/10 md:hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            <nav className="flex flex-col p-6 gap-4">
+              {menuItems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                >
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors py-2 block"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className="text-slate-700 dark:text-slate-300 text-sm font-medium py-2 block">
+                      {item.label}
+                    </span>
+                  )}
+                  {item.submenu && (
+                    <motion.div
+                      className="pl-4 mt-2 border-l border-slate-200 dark:border-slate-700"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      transition={{ delay: index * 0.05 + 0.1, duration: 0.3 }}
+                    >
+                      {item.submenu.map((subitem, subindex) => (
+                        <motion.div
+                          key={subitem.href}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 + subindex * 0.05 + 0.15, duration: 0.3 }}
+                        >
+                          <Link
+                            href={subitem.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-slate-600 dark:text-slate-400 text-sm hover:text-primary transition-colors py-2 block"
+                          >
+                            {subitem.label}
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </motion.div>
+              ))}
+              <motion.button
+                className="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: menuItems.length * 0.05 + 0.1, duration: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item.label}
-              </Link>
-            ))}
-            <button className="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4">
-              Get a Quote
-            </button>
-          </nav>
-        </div>
-      )}
+                Get a Quote
+              </motion.button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

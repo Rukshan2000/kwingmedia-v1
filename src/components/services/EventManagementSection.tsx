@@ -34,17 +34,17 @@ export default function EventManagementSection() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {events.map((event, i) => (
-          <div key={i} className="relative overflow-hidden rounded-2xl aspect-[16/9] group">
+          <div key={i} className="relative overflow-hidden rounded-2xl aspect-video group">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url('${event.image}')`,
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8">
               <h3 className="text-white text-2xl font-bold mb-2">{event.title}</h3>
-              <p className="text-white/80 text-sm max-w-sm mb-4 text-slate-400">
+              <p className="text-slate-400 text-sm max-w-sm mb-4">
                 {event.description}
               </p>
               <button className="bg-primary hover:bg-primary/90 text-white text-sm font-bold py-2 px-6 rounded-lg transition-colors">

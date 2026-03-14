@@ -2,14 +2,14 @@ export default function BrandingHero() {
   return (
     <section className="relative px-6 md:px-20 py-12 md:py-24">
       <div className="max-w-7xl mx-auto">
-        <div className="relative overflow-hidden rounded-xl bg-slate-900 min-h-[500px] flex flex-col items-center justify-center text-center p-8 md:p-16">
+        <div className="relative overflow-hidden rounded-xl bg-slate-900 min-h-125 flex flex-col items-center justify-center text-center p-8 md:p-16">
           <div
             className="absolute inset-0 opacity-40 bg-cover bg-center"
             style={{
               backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvK6-S3_RKH-HW2u-yX9MHG-KqaM8wTBYzXNCnFQWI54jmDL8zLdPsceWgZbssrrJx5WZz_SjF8l5ARl7cj75Jd-aUgWsb9pdA8z0g9BmIrGEvEh_7jlWjKewdeLXY-AlHouWSqC7tkM-MvygQ4NW_A86DzqvGrNjkBEFCYkrHDKYoya2EyWfUh2N03dovNqB1PR87CLdRKXDcjRuwuuqdaDUTjDt7mP0OR2H-mfqLZlz6bLOSruuVjLThlA9X-4MNrp1v4pYy2yg')`,
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-primary text-white rounded-full">
               Award Winning Agency

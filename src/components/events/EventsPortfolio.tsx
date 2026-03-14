@@ -48,7 +48,7 @@ export default function EventsPortfolio() {
             <div
               key={i}
               className={`group relative overflow-hidden rounded-xl bg-slate-200 ${
-                item.isWide ? 'aspect-video sm:col-span-2 lg:col-span-3' : 'aspect-[4/5]'
+                item.isWide ? 'aspect-video sm:col-span-2 lg:col-span-3' : 'aspect-4/5'
               }`}
             >
               <div
@@ -60,7 +60,7 @@ export default function EventsPortfolio() {
                 }}
               ></div>
               <div
-                className={`absolute inset-0 bg-gradient-to-t to-transparent ${
+                className={`absolute inset-0 bg-linear-to-t to-transparent ${
                   item.isWide
                     ? 'from-black/60 opacity-100'
                     : 'from-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100'

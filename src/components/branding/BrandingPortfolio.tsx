@@ -30,13 +30,13 @@ export default function BrandingPortfolio() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {portfolio.map((item, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-xl aspect-[4/5]">
+            <div key={i} className="group relative overflow-hidden rounded-xl aspect-4/5">
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 src={item.image}
                 alt={item.title}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                 <p className="text-primary font-bold text-xs uppercase mb-1">{item.category}</p>
                 <h4 className="text-white text-xl font-bold">{item.title}</h4>
               </div>

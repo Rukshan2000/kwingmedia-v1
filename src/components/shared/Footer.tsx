@@ -1,5 +1,7 @@
 import { Globe, Mail, MapPin, Phone, Share2 } from 'lucide-react';
 
+const logo = '/assets/logoWh.png';
+
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 px-6 lg:px-20 py-16">
@@ -9,7 +11,7 @@ export default function Footer() {
             <img
               alt="Kwings Media Logo"
               className="h-8 w-auto"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuByNHMz6pC4NnDVRyHs1rcIaiX1fDiHEB4B7dNzK8iGz84R1aigfEdf9QonqyT2R2xGQEF61x5azZXhRXrZptkUCwgCJ4TTTiZm_VpJCSxxSeFJTjKAJFEY-TtWOz5Jm1bmpCCUJ5EmB4nmxr4pS8JAyPrxfyUtViAvshYNDuw9kNJgnaKTcsXvI3dXvv40YjzQSKQeffWqBfv8BhqkEw0ZhYhRTtEpIFBVSdhxmCc7BYuXRvmIZQ4JhphNV_JHpvN-VX_DPIXRmbQ"
+              src={logo}
             />
             <span className="text-slate-900 dark:text-white font-bold">Kwings Media</span>
           </div>

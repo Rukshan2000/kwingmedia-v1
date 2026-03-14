@@ -6,9 +6,8 @@ import { EventsHero, EventsServices, EventsPortfolio, EventsCTA } from '@/compon
 export default function EventsPage() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden dark:bg-background-dark bg-slate-950">
-      <Navigation />
 
-      <main className="flex-grow">
+      <main className="grow">
         <EventsHero />
         <EventsServices />
         <EventsPortfolio />

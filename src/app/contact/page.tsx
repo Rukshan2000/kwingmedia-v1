@@ -13,7 +13,6 @@ import {
 export default function ContactPage() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col dark:bg-background-dark overflow-x-hidden bg-slate-950">
-      <Navigation />
 
       <main className="flex-1">
         <ContactHero />

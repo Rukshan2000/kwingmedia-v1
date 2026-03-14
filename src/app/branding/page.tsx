@@ -14,7 +14,6 @@ import {
 export default function BrandingPage() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden dark:bg-background-dark bg-[#111111]">
-      <Navigation />
 
       <main className="flex flex-col">
         <BrandingHero />

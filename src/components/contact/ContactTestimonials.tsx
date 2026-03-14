@@ -29,11 +29,13 @@ export default function ContactTestimonials() {
     <Testimonials
       title="What Our Clients Say"
       subtitle="We pride ourselves on delivering excellence. Hear from the partners who have grown their brands with Kwings Media."
-      testimonials={testimonials}
-      variant="contact"
+      testimonials={testimonials.map((t) => ({
+        ...t,
+        hasIcon: true,
+      }))}
+      variant="default"
       columns={3}
       backgroundColor="bg-slate-900/50"
-      showQuoteIcon={true}
     />
   );
 }

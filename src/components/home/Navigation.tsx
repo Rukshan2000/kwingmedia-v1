@@ -21,6 +21,7 @@ export default function Navigation() {
       label: 'Services',
       submenu: [
         { label: 'Events', href: '/events' },
+        { label: 'Audio & Video Studio', href: '/studio' },
         { label: 'IT Solutions', href: '/solutions' },
         { label: 'Brand Management', href: '/branding' },
       ],

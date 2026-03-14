@@ -16,6 +16,8 @@ const menuItems = [
       { label: 'Events', href: '/events' },
       { label: 'IT Solutions', href: '/solutions' },
       { label: 'Brand Management', href: '/branding' },
+        { label: 'Audio & Video Studio', href: '/studio' },
+      
     ],
   },
   { label: 'Contact', href: '/contact' },

@@ -8,37 +8,31 @@ export default function StudioPortfolio() {
       title: 'Corporate Conference Documentation',
       category: 'Live Streaming',
       description: 'Full 4K documentation and live streaming of multi-day corporate conference with 2000+ attendees.',
-      image: 'bg-gradient-to-br from-blue-500 to-blue-600',
     },
     {
       title: 'Music Album Production',
       category: 'Music Production',
       description: 'Complete recording, mixing, and mastering of debut album from emerging artist across 12 tracks.',
-      image: 'bg-gradient-to-br from-purple-500 to-pink-600',
     },
     {
       title: 'Wedding Pre-Shoot Campaign',
       category: 'Event Documentation',
       description: 'Cinematic pre-wedding shoot with drone footage, multi-location shooting, and same-day edit.',
-      image: 'bg-gradient-to-br from-orange-500 to-red-600',
     },
     {
       title: 'Product Launch Live Stream',
       category: 'Live Production',
       description: 'End-to-end production of product launch with multi-camera setup, graphics overlay, and audience interaction.',
-      image: 'bg-gradient-to-br from-green-500 to-emerald-600',
     },
     {
       title: 'Podcast Series Production',
       category: 'Audio Production',
       description: 'Series of 20+ podcast episodes with professional recording, editing, and distribution across platforms.',
-      image: 'bg-gradient-to-br from-indigo-500 to-blue-600',
     },
     {
       title: 'Keynote Conference Recording',
       category: 'Video Production',
       description: 'Professional recording and editing of keynote speeches with slide capture and presentation graphics.',
-      image: 'bg-gradient-to-br from-rose-500 to-pink-600',
     },
   ];
 
@@ -61,18 +55,12 @@ export default function StudioPortfolio() {
           {portfolio.map((item, i) => (
             <div
               key={i}
-              className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer bg-gradient-to-br from-white/10 via-white/5 to-white/0 dark:from-white/5 dark:via-white/2 dark:to-transparent backdrop-blur-md border border-white/20 dark:border-white/10 hover:border-white/40 dark:hover:border-white/20 hover:bg-gradient-to-br hover:from-white/20 hover:via-white/10 hover:to-white/0 dark:hover:from-white/10 dark:hover:via-white/5 dark:hover:to-transparent transition-all duration-300"
             >
-              {/* Background */}
-              <div className={`absolute inset-0 ${item.image}`} />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
-
               {/* Content */}
               <div className="relative h-full flex flex-col justify-between p-6 text-white">
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/80 text-white text-xs font-bold uppercase tracking-widest mb-3">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-3 border border-white/20">
                     {item.category}
                   </span>
                 </div>
@@ -82,7 +70,7 @@ export default function StudioPortfolio() {
                   <p className="text-sm text-slate-100 line-clamp-2">{item.description}</p>
                 </div>
 
-                <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-sm font-bold">View Project</span>
                   <ArrowRight size={16} />
                 </div>

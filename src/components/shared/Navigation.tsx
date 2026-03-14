@@ -40,7 +40,7 @@ export default function Navigation() {
             />
           </div>
           <h2 className="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">
-            Kwings Media
+            KWINGS MEDIA
           </h2>
         </div>
       </Link>

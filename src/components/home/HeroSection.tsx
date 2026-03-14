@@ -3,42 +3,47 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import { VIDEOS } from '@/constants/videos';
 
 const HERO_SLIDES = [
   {
-    badge: 'Your Growth Partner',
-    title: 'Integrated Solutions for',
-    highlight: 'Accelerated',
-    suffix: 'Business Growth',
+    badge: 'Your Strategic Growth Partner',
+    title: 'Creative Solutions for',
+    highlight: 'Powerful',
+    suffix: 'Brand Experiences',
     description:
-      'Partner with Kwings Media for cutting-edge digital marketing, robust IT solutions, and seamless event management.',
-    imageAlt: 'Digital strategy team working in a modern office',
-    imageSrc:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBck-Vy1RWdjdgHEZkeYKx2_Gtgqu5891J7v2-1gMNYEfNXjB6nz4wJAoOqXnvFgVobVCk0yetgW6Lez-3ZxYd4GDYxhUWUnR779d0YzVRcXa9N2hHccbajf1yRys26-M-8-u2BgipKnv6t8pSld355FZ6Lis5W0fiSIGqnai-N2UsFtxbcMufeA71qMfrex7wTjzvVDMPYawh9JKTbzkGZVSWul2CXldH68OWZoMfDwkpWjNOwUMjt7jxYkx_9ToOEcJJobXHgI88',
+      'Kwings Media delivers impactful branding, advertising, and event experiences that elevate your brand and connect you with the right audience.',
+    videoSrc: VIDEOS.BG1,
   },
   {
-    badge: 'Event Excellence',
-    title: 'Experiences That Turn',
-    highlight: 'Attention',
-    suffix: 'Into Momentum',
+    badge: 'Event Management Experts',
+    title: 'Events That Inspire',
+    highlight: 'Engagement',
+    suffix: 'and Impact',
     description:
-      'From product launches to corporate summits, we design unforgettable events that amplify your brand in real time.',
-    imageAlt: 'Crowd at a premium brand event with stage lighting',
-    imageSrc:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuD4lM0INhtcCCWrdRkCdztG1PYg2ZdTfZpb01NFoCbB5AYtzcIxFyxdJma-ytzVzKLniD-1lJSvo8ficDoBwBV9hqZEXsuomjrJatN4f1iIACJrfuVROcw3uLAZV8z1zUjxErwYPYl3O46fxpUbNyImGmXQvAruoJTaNEdIq2wSPwomnkaamXfFVBcl8LMSFkA__ML0r7DCQvZv3suZhXYT-TKZITU9b4-xSLYP-oC1ZxEVFrvL-l2N5glSmdfeKS-BuFMJ4qsmo7E',
+      'From corporate events and product launches to large-scale brand activations, Kwings Media creates memorable experiences powered by world-class production and planning.',
+    videoSrc: VIDEOS.BG2,
   },
   {
-    badge: 'Built for Scale',
-    title: 'Future-Ready',
-    highlight: 'IT Systems',
-    suffix: 'for Confident Teams',
+    badge: 'Technology & Innovation',
+    title: 'Reliable',
+    highlight: 'IT Solutions',
+    suffix: 'for Modern Businesses',
     description:
-      'We build secure, scalable IT infrastructure and software that keeps your business fast, stable, and always connected.',
-    imageAlt: 'Engineers collaborating on cloud architecture and software systems',
-    imageSrc:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuC8UyHhMzYradfEKD5M4vfqATF5IicbbigHoGAFPaNVjS6ETGGv5vhZJNzIyV37qV5tExjdX-yI5Yn-aOc1g0RUPDL1nWddpegBvHx4ZCZ1gfPgbtuOr50QJ0ZDxMN64W9khy08p5rZer1XDChMnbQWBu_Kwd2Rjte06zva6UU0GBg91EW52GkB1J6KbLR7UNo47P7pj2GBbkTVNmVZM_640zRTSgmU9wMVCJccDWuBiHqbOfcL7_phRtPhDZIx0tS2YIJ8Qu0LgP8',
+      'We build scalable IT systems, digital platforms, and smart infrastructure that help businesses operate faster, smarter, and more securely.',
+    videoSrc: VIDEOS.BG3,
   },
+  {
+    badge: 'Professional Production',
+    title: 'Advanced',
+    highlight: 'Audio Visual',
+    suffix: 'Production Services',
+    description:
+      'Kwings Media provides professional audio, lighting, LED displays, and visual production solutions to make every event immersive and unforgettable.',
+    videoSrc: VIDEOS.BG4,
+  }
 ];
+
 
 export default function HeroSection() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -55,23 +60,28 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Animated Background Images with Framer Motion */}
-      <AnimatePresence mode="wait">
+      {/* Background Videos — all mounted, continuously playing */}
+      {HERO_SLIDES.map((slide, index) => (
         <motion.div
-          key={activeSlide}
+          key={slide.videoSrc}
           className="absolute inset-0"
-          initial={{ scale: 1.14, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 5.2, ease: 'easeOut' }}
+          initial={false}
+          animate={{
+            opacity: index === activeSlide ? 1 : 0,
+            scale: index === activeSlide ? 1 : 1.14,
+          }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
         >
-          <img
-            alt={currentSlide.imageAlt}
+          <video
             className="w-full h-full object-cover"
-            src={currentSlide.imageSrc}
+            src={slide.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
           />
         </motion.div>
-      </AnimatePresence>
+      ))}
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>

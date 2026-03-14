@@ -7,19 +7,24 @@ import {
   ITSolutionsSection,
   EventManagementSection,
   ServicesCTA,
-} from '@/components/services';
+} from '@/components/about';
 
-export default function ServicesPage() {
+export default function AboutPage() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-20 py-12">
-        <ServicesHero />
+      {/* Full-width hero with background video */}
+      <ServicesHero />
+
+      {/* Constrained content sections */}
+      <main className="flex-1 max-w-7xl mx-auto w-full px-6 md:px-20 py-16">
         <DigitalMarketingSection />
         <ITSolutionsSection />
         <EventManagementSection />
-        <ServicesCTA />
       </main>
+
+      {/* Full-width CTA with video background */}
+      <ServicesCTA />
 
       <Footer />
     </div>

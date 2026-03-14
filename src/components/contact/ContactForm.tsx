@@ -80,6 +80,8 @@ export default function ContactForm() {
             <option>IT Solutions</option>
             <option>Event Management</option>
             <option>General Inquiry</option>
+            <option>Audio Production</option>
+
           </select>
         </label>
         <label className="flex flex-col gap-2">

@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-400">
-        <p>© 2024 Kwings Media. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Kwings Media. All rights reserved.</p>
         <div className="flex gap-6">
           <a className="hover:text-primary" href="#">
             Privacy Policy

@@ -15,6 +15,7 @@ const HERO_SLIDES = [
       'Kwings Media delivers impactful branding, advertising, and event experiences that elevate your brand and connect you with the right audience.',
     videoSrc: VIDEOS.BG1,
     posterSrc: VIDEO_POSTERS.BG1,
+    href: '/branding',
   },
   {
     badge: 'Event Management Experts',
@@ -25,6 +26,7 @@ const HERO_SLIDES = [
       'From corporate events and product launches to large-scale brand activations, Kwings Media creates memorable experiences powered by world-class production and planning.',
     videoSrc: VIDEOS.BG2,
     posterSrc: VIDEO_POSTERS.BG2,
+    href: '/events',
   },
   {
     badge: 'Technology & Innovation',
@@ -35,6 +37,7 @@ const HERO_SLIDES = [
       'We build scalable IT systems, digital platforms, and smart infrastructure that help businesses operate faster, smarter, and more securely.',
     videoSrc: VIDEOS.BG3,
     posterSrc: VIDEO_POSTERS.BG3,
+    href: '/solutions',
   },
   {
     badge: 'Professional Production',
@@ -45,6 +48,7 @@ const HERO_SLIDES = [
       'Kwings Media provides professional audio, lighting, LED displays, and visual production solutions to make every event immersive and unforgettable.',
     videoSrc: VIDEOS.BG4,
     posterSrc: VIDEO_POSTERS.BG4,
+    href: '/studio',
   }
 ];
 
@@ -138,7 +142,7 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <Link href="/services">
+              <Link href={currentSlide.href}>
                 <motion.button
                   className="flex min-w-40 cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-base font-bold transition-all"
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 25px -5px rgba(var(--color-primary), 0.3)' }}
@@ -147,6 +151,7 @@ export default function HeroSection() {
                   Explore Services
                 </motion.button>
               </Link>
+              <Link href="/contact">
               <motion.button
                 className="flex min-w-40 cursor-pointer items-center justify-center rounded-lg h-14 px-6 border-2 border-white text-white text-base font-bold transition-all"
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
@@ -154,6 +159,7 @@ export default function HeroSection() {
               >
                 Contact Us
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </AnimatePresence>

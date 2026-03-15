@@ -259,7 +259,7 @@ export default function ServicesPreview() {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <Link href="/contact">
+          <Link href="/about">
             <motion.button
               className="flex min-w-40 cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-base font-bold shadow-lg shadow-primary/20 mx-auto"
               whileHover={{

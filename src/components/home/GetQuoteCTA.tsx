@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function GetQuoteCTA() {
@@ -49,6 +50,7 @@ export default function GetQuoteCTA() {
             Whether you need a full digital transformation or a specific campaign, our team is
             ready to deliver exceptional results.
           </motion.p>
+          <Link href="/contact">
           <motion.button
             className="flex min-w-50 cursor-pointer items-center justify-center rounded-lg h-16 px-8 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/20"
             variants={itemVariants}
@@ -59,8 +61,9 @@ export default function GetQuoteCTA() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           >
-            Get Your Free Quote
+            Get Quote
           </motion.button>
+         </Link>
           <motion.p
             className="text-slate-500 text-sm font-medium"
             variants={itemVariants}

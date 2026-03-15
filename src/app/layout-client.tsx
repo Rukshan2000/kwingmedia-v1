@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Toaster } from 'sonner';
 import Splash from '@/components/Splash';
 
 export default function SplashWrapper({
@@ -26,6 +27,7 @@ export default function SplashWrapper({
 
   return (
     <>
+      <Toaster position="top-right" />
       {showSplash && <Splash onComplete={handleSplashComplete} />}
       {!showSplash && children}
     </>

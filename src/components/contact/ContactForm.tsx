@@ -1,8 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 import { Send } from 'lucide-react';
+
+// Credentials from environment variables
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +17,14 @@ export default function ContactForm() {
     service: 'Digital Marketing',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,17 +34,52 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // TODO: Add backend integration for form submission
-    alert('Thank you for reaching out! We will be in touch soon.');
-    setFormData({
-      fullName: '',
-      email: '',
-      service: 'Digital Marketing',
-      message: '',
-    });
+    
+    // Validate form data
+    if (!formData.fullName || !formData.email || !formData.message) {
+      toast.error('Please fill in all required fields.');
+      return;
+    }
+
+    // Check if EmailJS is configured
+    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+      toast.error('Email service is not configured yet. Please set up EmailJS credentials in .env.local');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          to_email: 'kwingsmedia@gmail.com',
+          from_name: formData.fullName,
+          from_email: formData.email,
+          service_type: formData.service,
+          message: formData.message,
+        }
+      );
+
+      toast.success('Thank you for reaching out! We will be in touch soon.');
+      
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        service: 'Digital Marketing',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Email send failed:', error);
+      toast.error('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -98,9 +147,10 @@ export default function ContactForm() {
         </label>
         <button
           type="submit"
-          className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-4 transform hover:scale-105 duration-200"
+          disabled={isSubmitting}
+          className="bg-primary hover:bg-primary/90 disabled:bg-primary/60 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-4 transform hover:scale-105 duration-200"
         >
-          <span>Send Message</span>
+          <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
           <Send size={18} />
         </button>
       </form>

@@ -1,4 +1,5 @@
 import { Globe, Mail, MapPin, Phone, Share2 } from 'lucide-react';
+import Link from 'next/link';
 
 const logo = '/assets/logoWh.png';
 
@@ -77,17 +78,27 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h6 className="text-slate-900 dark:text-white font-bold">Contact</h6>
           <div className="flex flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
-            <p className="flex items-start gap-2">
-              <MapPin size={18} className="text-primary" />
-              123 Digital Square, Innovation City, 90210
-            </p>
-            <p className="flex items-center gap-2">
-              <Mail size={18} className="text-primary" />
-              hello@kwingsmedia.com
-            </p>
+            <Link href="https://maps.app.goo.gl/rxQBAZ38w6rvAdVJ6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors cursor-pointer group"
+            >
+              <p className="flex items-start gap-2 group-hover:text-primary transition-colors">
+                <MapPin size={18} className="text-primary flex-shrink-0" />
+                <span>322/D, Bollatha, Ganemulla.</span>
+              </p>
+            </Link>
+            <Link href="mailto:kwingsmedia@gmail.com"
+              className="hover:text-primary transition-colors cursor-pointer group"
+            >
+              <p className="flex items-center gap-2 group-hover:text-primary transition-colors">
+                <Mail size={18} className="text-primary flex-shrink-0" />
+                kwingsmedia@gmail.com
+              </p>
+            </Link>
             <p className="flex items-center gap-2">
               <Phone size={18} className="text-primary" />
-              +1 (555) 000-0000
+              +94 70 150 3412
             </p>
           </div>
         </div>

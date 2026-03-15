@@ -7,23 +7,18 @@ export default function ContactLocation() {
         <MapPin size={28} className="text-primary" />
         Our Headquarters
       </h3>
-      <div className="rounded-2xl overflow-hidden h-72 relative bg-slate-200 dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700/50">
-        <img
-          className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity duration-300"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXR4ZYSdJe_3om-mxee3NDbKtd1yZIT_KnVanTwQOfQwLj2hX3WSy9aUjDmQ_gsPbQfNLdjxeGByZxg7tMj2E3GqGEFySfIIGWsklEKRVHLDoROm_nD6AjdMjnuLquMjiNRiVAKlA5Fdy8kobcgJlXYMOj29w2qn4YlzPleEvr496UyEULhhk2Ba2w5pBuv1hAdK9hgNcAoEL368CQvekzAEhow9FsXKoOzSKqsUCn9sq6Dy7HkTi7c2iKBTuXU7Sa-RxUE7Ep7JI"
-          alt="Map location"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-primary p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
-            <Building2 size={24} className="text-white" />
-          </div>
-        </div>
+      <div className="rounded-2xl overflow-hidden relative bg-slate-200 dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700/50">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.475914544061!2d79.94340727581839!3d7.070688316561158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb729ba28775%3A0x962d6339675eab5f!2sKWINGS%20MEDIA%20(PVT)LTD!5e0!3m2!1sen!2slk!4v1773556129209!5m2!1sen!2slk" 
+          width="100%" 
+          height="450" 
+          style={{border: 0}} 
+          allowFullScreen
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-      <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-200 dark:border-slate-700/50">
-        <span className="font-semibold text-slate-900 dark:text-white">123 Business Avenue, Suite 400</span>
-        <br />
-        Creative District, New York, NY 10001
-      </p>
+
     </div>
   );
 }

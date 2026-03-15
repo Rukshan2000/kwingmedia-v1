@@ -9,7 +9,7 @@ export default function ContactInfo() {
         </div>
         <h3 className="font-bold text-slate-900 dark:text-white text-lg">Call Us</h3>
         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-          +1 (555) 000-1234
+          <a href="tel:+94701503412" className="text-primary hover:underline">+94 70 150 3412</a>
           <br className="hidden sm:block" />
           <span className="block sm:inline">Mon-Fri, 9am - 6pm</span>
         </p>
@@ -20,9 +20,7 @@ export default function ContactInfo() {
         </div>
         <h3 className="font-bold text-slate-900 dark:text-white text-lg">Email Us</h3>
         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-          hello@kwingsmedia.com
-          <br />
-          support@kwingsmedia.com
+          <a href="mailto:kwingsmedia@gmail.com" className="text-primary hover:underline">kwingsmedia@gmail.com</a>
         </p>
       </div>
     </div>

@@ -223,6 +223,7 @@ function MobileDrawer({
 
             {/* CTA at bottom */}
             <div className="px-6 py-6 border-t border-slate-100 dark:border-slate-800">
+              <Link href="/contact">
               <motion.button
                 className="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25"
                 whileHover={{ scale: 1.02 }}
@@ -232,6 +233,7 @@ function MobileDrawer({
                 Get a Quote
                 <ArrowRight size={15} />
               </motion.button>
+              </Link>
               <p className="text-center text-xs text-slate-400 dark:text-slate-600 mt-3">
                 Kwings Media · Creative Studio
               </p>
@@ -269,13 +271,15 @@ export default function Navigation() {
               <DesktopDropdown key={item.label} item={item} />
             ))}
           </nav>
-          <motion.button
-            className="flex min-w-[7.5rem] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get a Quote
-          </motion.button>
+          <Link href="/contact">
+            <motion.button
+              className="flex min-w-[7.5rem] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get a Quote
+            </motion.button>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}

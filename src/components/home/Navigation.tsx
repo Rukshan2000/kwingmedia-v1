@@ -90,6 +90,7 @@ export default function Navigation() {
             </div>
           ))}
         </nav>
+        <Link href="/contact">
         <motion.button
           className="flex min-w-30 cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
           whileHover={{ scale: 1.05 }}
@@ -97,6 +98,7 @@ export default function Navigation() {
         >
           Get a Quote
         </motion.button>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}

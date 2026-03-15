@@ -14,7 +14,7 @@ export default function EventsPage() {
           <EventsServices />
         </div>
         
-        <EventsPortfolio />
+        {/* <EventsPortfolio /> */}
       </main>
 
       <div className="w-full py-12">

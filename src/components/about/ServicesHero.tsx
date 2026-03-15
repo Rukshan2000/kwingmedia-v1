@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 import { ChevronDown } from 'lucide-react';
 
 export default function ServicesHero() {
@@ -11,6 +11,7 @@ export default function ServicesHero() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={VIDEOS.BG1}
+        poster={VIDEO_POSTERS.BG1}
         autoPlay
         muted
         loop

@@ -1,6 +1,6 @@
 'use client';
 
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 
 export default function ContactHero() {
   return (
@@ -9,6 +9,7 @@ export default function ContactHero() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={VIDEOS.BG2}
+        poster={VIDEO_POSTERS.BG2}
         autoPlay
         muted
         loop

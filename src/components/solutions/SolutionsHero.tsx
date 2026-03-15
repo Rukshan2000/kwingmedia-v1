@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 import Link from 'next/link';
 
 export default function SolutionsHero() {
@@ -11,6 +11,7 @@ export default function SolutionsHero() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={VIDEOS.BG3}
+        poster={VIDEO_POSTERS.BG3}
         autoPlay
         muted
         loop

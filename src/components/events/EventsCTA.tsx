@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 import { Sparkles, Zap, CheckCircle2, Shield } from 'lucide-react';
 
 export default function EventsCTA() {
@@ -34,6 +34,7 @@ export default function EventsCTA() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={VIDEOS.BG2}
+        poster={VIDEO_POSTERS.BG2}
         autoPlay
         muted
         loop

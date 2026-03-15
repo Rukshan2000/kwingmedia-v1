@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 
 const HERO_SLIDES = [
   {
@@ -14,6 +14,7 @@ const HERO_SLIDES = [
     description:
       'Kwings Media delivers impactful branding, advertising, and event experiences that elevate your brand and connect you with the right audience.',
     videoSrc: VIDEOS.BG1,
+    posterSrc: VIDEO_POSTERS.BG1,
   },
   {
     badge: 'Event Management Experts',
@@ -23,6 +24,7 @@ const HERO_SLIDES = [
     description:
       'From corporate events and product launches to large-scale brand activations, Kwings Media creates memorable experiences powered by world-class production and planning.',
     videoSrc: VIDEOS.BG2,
+    posterSrc: VIDEO_POSTERS.BG2,
   },
   {
     badge: 'Technology & Innovation',
@@ -32,6 +34,7 @@ const HERO_SLIDES = [
     description:
       'We build scalable IT systems, digital platforms, and smart infrastructure that help businesses operate faster, smarter, and more securely.',
     videoSrc: VIDEOS.BG3,
+    posterSrc: VIDEO_POSTERS.BG3,
   },
   {
     badge: 'Professional Production',
@@ -41,6 +44,7 @@ const HERO_SLIDES = [
     description:
       'Kwings Media provides professional audio, lighting, LED displays, and visual production solutions to make every event immersive and unforgettable.',
     videoSrc: VIDEOS.BG4,
+    posterSrc: VIDEO_POSTERS.BG4,
   }
 ];
 
@@ -75,6 +79,7 @@ export default function HeroSection() {
           <video
             className="w-full h-full object-cover"
             src={slide.videoSrc}
+            poster={slide.posterSrc}
             autoPlay
             muted
             loop

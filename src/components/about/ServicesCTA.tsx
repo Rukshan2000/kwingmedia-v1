@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { VIDEOS } from '@/constants/videos';
+import { VIDEOS, VIDEO_POSTERS } from '@/constants/videos';
 import { Zap, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function ServicesCTA() {
@@ -35,6 +35,7 @@ export default function ServicesCTA() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={VIDEOS.BG4}
+        poster={VIDEO_POSTERS.BG4}
         autoPlay
         muted
         loop

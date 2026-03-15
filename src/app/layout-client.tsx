@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Toaster } from 'sonner';
 import Splash from '@/components/Splash';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function SplashWrapper({
   children,
@@ -28,6 +29,7 @@ export default function SplashWrapper({
   return (
     <>
       <Toaster position="top-right" />
+      <FloatingWhatsApp />
       {showSplash && <Splash onComplete={handleSplashComplete} />}
       {!showSplash && children}
     </>

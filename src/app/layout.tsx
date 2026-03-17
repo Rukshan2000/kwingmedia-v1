@@ -36,11 +36,20 @@ export const metadata: Metadata = {
     url: "https://kwingsmedia.com",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://kwingsmedia.com/assets/logoWh.png",
+        width: 1200,
+        height: 630,
+        alt: "Kwings Media Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Kwings Media | Integrated Business Growth",
     description: "Integrated digital marketing, IT solutions, and event management services",
+    images: ["https://kwingsmedia.com/assets/logoWh.png"],
   },
   robots: {
     index: true,

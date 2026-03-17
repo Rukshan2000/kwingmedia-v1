@@ -1,7 +1,8 @@
 'use client';
 
-import { ShoppingCart, Users, Globe, Code, Zap, BarChart3 } from 'lucide-react';
+import { ShoppingCart, Users, Globe, Code, Zap, BarChart3, ArrowRight } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 const IconMap: Record<string, LucideIcon> = {
@@ -11,6 +12,15 @@ const IconMap: Record<string, LucideIcon> = {
   software: Code,
   integration: Zap,
   analytics: BarChart3,
+} as const;
+
+const RouteMap: Record<string, string> = {
+  pos: '/solutions/pos-systems',
+  hr: '/solutions/hr-management',
+  website: '/solutions/web-apps',
+  software: '/solutions/custom-software',
+  integration: '/solutions/mobile-iot',
+  analytics: '/solutions/analytics',
 } as const;
 
 export default function ExpertiseGrid() {
@@ -87,6 +97,13 @@ export default function ExpertiseGrid() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={RouteMap[item.icon]}
+                className="mt-6 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/btn"
+              >
+                Learn more
+                <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
             </div>
           ))}
         </div>

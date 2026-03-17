@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kwingsmedia.com"),
   title: "Kwings Media | Integrated Business Growth",
   description: "Partner with Kwings Media for cutting-edge digital marketing, robust IT solutions, and seamless event management. We bridge the gap between technology and brand experience.",
   keywords: "digital marketing, IT solutions, event management, branding, web development, business growth",
@@ -28,9 +29,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/assets/logoWh.png", sizes: "32x32", type: "image/png" },
+      { url: "/assets/logoWh.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/assets/logoWh.png",
   },
   openGraph: {
+    siteName: "Kwings Media",
     title: "Kwings Media | Integrated Business Growth",
     description: "Partner with Kwings Media for cutting-edge digital marketing, robust IT solutions, and seamless event management. We bridge the gap between technology and brand experience.",
     url: "https://kwingsmedia.com",
@@ -42,6 +48,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Kwings Media Logo",
+        type: "image/png",
       },
     ],
   },
@@ -62,6 +69,13 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
